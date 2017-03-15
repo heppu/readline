@@ -538,7 +538,8 @@ func (r *RuneBuffer) cleanOutput(w io.Writer, idxLine int) {
 		buf.WriteString(strings.Repeat("\r\b", len(r.buf)+r.promptLen()))
 		buf.Write([]byte("\033[J"))
 	} else {
-		buf.Write([]byte("\033[J")) // just like ^k :)
+		// TODO: Config option for this
+		// buf.Write([]byte("\033[J")) // just like ^k :)
 		if idxLine == 0 {
 			buf.WriteString("\033[2K")
 			buf.WriteString("\r")
